@@ -5,7 +5,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Workshops from "@/components/Workshops";
 import Leadership from "@/components/Leadership";
-import OpenSource from "@/components/OpenSource";
+
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -19,7 +19,6 @@ export default function Home() {
         <Projects />
         <Workshops />
         <Leadership />
-        <OpenSource />
       </main>
       <Footer />
     </>
