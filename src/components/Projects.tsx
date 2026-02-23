@@ -71,7 +71,7 @@ export default function Projects() {
                                                     initial={{ opacity: 0, x: -20 }}
                                                     whileInView={{ opacity: 1, x: 0 }}
                                                     transition={{ delay: 0.3 + i * 0.1 }}
-                                                    viewport={{ once: true }}
+                                                    viewport={{ once: false }}
                                                     className="flex items-start gap-3 text-sm text-[var(--color-foreground)]/70"
                                                 >
                                                     <span className="text-emerald-400 mt-1">▹</span>
@@ -194,7 +194,7 @@ export default function Projects() {
                                                     initial={{ opacity: 0, x: -20 }}
                                                     whileInView={{ opacity: 1, x: 0 }}
                                                     transition={{ delay: 0.3 + i * 0.1 }}
-                                                    viewport={{ once: true }}
+                                                    viewport={{ once: false }}
                                                     className="flex items-start gap-3 text-sm text-[var(--color-foreground)]/70"
                                                 >
                                                     <span className="text-amber-400 mt-1">▹</span>

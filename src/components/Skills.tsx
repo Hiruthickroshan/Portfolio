@@ -66,7 +66,7 @@ export default function Skills() {
                                                     duration: 1,
                                                     ease: "easeOut",
                                                 }}
-                                                viewport={{ once: true }}
+                                                viewport={{ once: false }}
                                                 className="h-full rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-secondary)]"
                                             />
                                         </div>

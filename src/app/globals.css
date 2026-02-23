@@ -50,15 +50,18 @@ body {
 /* Glassmorphism card utility */
 .glass-card {
   background: rgba(19, 19, 26, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(99, 102, 241, 0.1);
   border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .glass-card:hover {
   border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
 }
 
 /* Gradient text */

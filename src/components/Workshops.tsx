@@ -83,7 +83,7 @@ export default function Workshops() {
                                                 initial={{ opacity: 0, x: 20 }}
                                                 whileInView={{ opacity: 1, x: 0 }}
                                                 transition={{ delay: 0.3 + i * 0.1 }}
-                                                viewport={{ once: true }}
+                                                viewport={{ once: false }}
                                                 className="flex items-center gap-3 p-3 rounded-lg bg-white/5"
                                             >
                                                 <span className="text-xl">{item.icon}</span>

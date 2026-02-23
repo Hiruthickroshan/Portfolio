@@ -42,20 +42,17 @@ export default function Navbar() {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                        ? "bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-[var(--color-border)]"
-                        : "bg-transparent"
+                    ? "bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-[var(--color-border)]"
+                    : "bg-transparent"
                     }`}
             >
                 <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
                     {/* Logo */}
                     <a
                         href="#home"
-                        className="text-xl font-bold tracking-tight group"
+                        className="text-xl font-bold tracking-tight text-[var(--color-foreground)] dark:text-white transition-colors"
                     >
-                        <span className="gradient-text">H</span>
-                        <span className="text-[var(--color-foreground)] group-hover:text-white transition-colors">
-                            iruthick
-                        </span>
+                        Hiruthickroshan
                     </a>
 
                     {/* Desktop Nav */}
@@ -65,8 +62,8 @@ export default function Navbar() {
                                 key={link.href}
                                 href={link.href}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeSection === link.href.slice(1)
-                                        ? "text-white bg-[var(--color-accent)]/20"
-                                        : "text-[var(--color-muted)] hover:text-white hover:bg-white/5"
+                                    ? "text-white bg-[var(--color-accent)]/20"
+                                    : "text-[var(--color-muted)] hover:text-white hover:bg-white/5"
                                     }`}
                             >
                                 {link.label}
@@ -124,8 +121,8 @@ export default function Navbar() {
                                     transition={{ delay: i * 0.1 }}
                                     onClick={() => setMobileOpen(false)}
                                     className={`px-6 py-4 rounded-2xl text-lg font-medium transition-all ${activeSection === link.href.slice(1)
-                                            ? "text-white bg-[var(--color-accent)]/20"
-                                            : "text-[var(--color-muted)] hover:text-white hover:bg-white/5"
+                                        ? "text-white bg-[var(--color-accent)]/20"
+                                        : "text-[var(--color-muted)] hover:text-white hover:bg-white/5"
                                         }`}
                                 >
                                     {link.label}

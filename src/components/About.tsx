@@ -83,7 +83,7 @@ export default function About() {
                                     initial={{ opacity: 0, x: 30 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ delay: i * 0.15, duration: 0.5 }}
-                                    viewport={{ once: true }}
+                                    viewport={{ once: false }}
                                     whileHover={{ x: 8 }}
                                     className="glass-card p-5 flex items-center gap-4 cursor-default group"
                                 >
@@ -99,7 +99,7 @@ export default function About() {
                                                 initial={{ width: 0 }}
                                                 whileInView={{ width: "100%" }}
                                                 transition={{ delay: 0.3 + i * 0.15, duration: 1 }}
-                                                viewport={{ once: true }}
+                                                viewport={{ once: false }}
                                                 className={`h-full rounded-full bg-gradient-to-r ${skill.color}`}
                                             />
                                         </div>

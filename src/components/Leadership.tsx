@@ -85,32 +85,32 @@ export default function Leadership() {
 
                 {/* Athletics highlight banner */}
                 <ScrollReveal delay={0.5}>
-                    <div className="mt-12 glass-card p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="flex items-center gap-4">
+                    <div className="mt-12 glass-card p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden">
+                        <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-4">
                             <div className="text-5xl">🏅</div>
                             <div>
-                                <h3 className="text-xl font-bold text-white">
+                                <h3 className="text-xl md:text-2xl font-bold text-white">
                                     National-Level Athlete
                                 </h3>
-                                <p className="text-[var(--color-muted)]">
+                                <p className="text-sm md:text-base text-[var(--color-muted)] mt-1">
                                     Discipline, focus, and perseverance — from the sports field to
                                     engineering
                                 </p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-6">
-                            <div className="text-center">
-                                <p className="text-3xl font-bold gradient-text">National</p>
+                        <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-4 md:gap-6 w-full md:w-auto">
+                            <div className="text-center flex-1 md:flex-none">
+                                <p className="text-2xl md:text-3xl font-bold gradient-text">National</p>
                                 <p className="text-xs text-[var(--color-muted)]">Level</p>
                             </div>
-                            <div className="w-px h-12 bg-[var(--color-border)]" />
-                            <div className="text-center">
-                                <p className="text-3xl font-bold gradient-text">Gold</p>
+                            <div className="hidden md:block w-px h-12 bg-[var(--color-border)]" />
+                            <div className="text-center flex-1 md:flex-none">
+                                <p className="text-2xl md:text-3xl font-bold gradient-text">Gold</p>
                                 <p className="text-xs text-[var(--color-muted)]">SGFI Medal</p>
                             </div>
-                            <div className="w-px h-12 bg-[var(--color-border)]" />
-                            <div className="text-center">
-                                <p className="text-3xl font-bold gradient-text">Captain</p>
+                            <div className="hidden md:block w-px h-12 bg-[var(--color-border)]" />
+                            <div className="text-center flex-1 md:flex-none">
+                                <p className="text-2xl md:text-3xl font-bold gradient-text">Captain</p>
                                 <p className="text-xs text-[var(--color-muted)]">Team Lead</p>
                             </div>
                         </div>
