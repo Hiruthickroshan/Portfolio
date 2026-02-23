@@ -30,7 +30,7 @@ export default function ScrollReveal({
             initial={{ opacity: 0, ...directionOffset[direction] }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration, delay, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: false, margin: "-50px" }}
             className={className}
         >
             {children}
