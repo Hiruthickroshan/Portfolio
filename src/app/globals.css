@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0a0a0f;
+  --color-background: #121218;
   --color-foreground: #e4e4e7;
-  --color-accent: #6366f1;
-  --color-accent-light: #818cf8;
-  --color-accent-secondary: #8b5cf6;
-  --color-surface: #13131a;
-  --color-surface-light: #1c1c27;
-  --color-border: #27273a;
+  --color-accent: #0ea5e9;
+  --color-accent-light: #38bdf8;
+  --color-accent-secondary: #06b6d4;
+  --color-surface: #16161e;
+  --color-surface-light: #1e1e2a;
+  --color-border: #2a2a3a;
   --color-muted: #71717a;
-  --font-sans: 'Work Sans', sans-serif;
+  --font-sans: 'Inter', sans-serif;
 }
 
 html {
@@ -43,30 +43,30 @@ body {
 
 /* Selection */
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgba(14, 165, 233, 0.3);
   color: #fff;
 }
 
 /* Glassmorphism card utility */
 .glass-card {
-  background: rgba(19, 19, 26, 0.7);
+  background: rgba(22, 22, 30, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.08);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: rgba(14, 165, 233, 0.25);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   transform: scale(1.02);
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa);
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4, #38bdf8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -83,11 +83,83 @@ body {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, transparent, transparent);
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4, transparent, transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+}
+
+/* Skill badge */
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-badge:hover {
+  background: rgba(14, 165, 233, 0.08);
+  border-color: rgba(14, 165, 233, 0.25);
+  transform: translateY(-2px);
+}
+
+.skill-badge i {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.skill-badge span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-foreground);
+}
+
+/* Featured project buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+  color: #fff;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 30px rgba(14, 165, 233, 0.35);
+  transform: scale(1.05);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  background: transparent;
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  border-color: rgba(14, 165, 233, 0.5);
+  background: rgba(14, 165, 233, 0.06);
+  transform: scale(1.03);
 }
 
 /* Floating particle animation */

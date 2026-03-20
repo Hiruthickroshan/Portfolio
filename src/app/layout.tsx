@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Work_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const workSans = Work_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-work-sans",
+  variable: "--font-inter",
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
@@ -36,7 +36,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${workSans.variable} antialiased`} style={{ fontFamily: "'Work Sans', sans-serif" }}>
+      <head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
+      <body className={`${inter.variable} antialiased`} style={{ fontFamily: "'Inter', sans-serif" }}>
         {children}
       </body>
     </html>
