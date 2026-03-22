@@ -3,6 +3,15 @@
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
+import { Rocket, Microscope, Flame, Users, Wrench } from "lucide-react";
+import { type ReactNode } from "react";
+
+const takeaways: { icon: ReactNode; label: string }[] = [
+    { icon: <Microscope className="w-5 h-5 text-cyan-400" />, label: "Aerodynamics fundamentals" },
+    { icon: <Flame className="w-5 h-5 text-cyan-400" />, label: "Propulsion mechanics" },
+    { icon: <Users className="w-5 h-5 text-cyan-400" />, label: "Team collaboration" },
+    { icon: <Wrench className="w-5 h-5 text-cyan-400" />, label: "Hands-on fabrication" },
+];
 
 export default function Workshops() {
     return (
@@ -25,8 +34,8 @@ export default function Workshops() {
                                 {/* Left - Main Info */}
                                 <div className="flex-1 space-y-6">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-3xl shrink-0">
-                                            🚀
+                                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shrink-0">
+                                            <Rocket className="w-7 h-7 text-white" />
                                         </div>
                                         <div>
                                             <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
@@ -72,12 +81,7 @@ export default function Workshops() {
                                         Key Takeaways
                                     </h4>
                                     <div className="space-y-3">
-                                        {[
-                                            { icon: "🔬", label: "Aerodynamics fundamentals" },
-                                            { icon: "🔥", label: "Propulsion mechanics" },
-                                            { icon: "🤝", label: "Team collaboration" },
-                                            { icon: "🛠️", label: "Hands-on fabrication" },
-                                        ].map((item, i) => (
+                                        {takeaways.map((item, i) => (
                                             <motion.div
                                                 key={item.label}
                                                 initial={{ opacity: 0, x: 20 }}
@@ -86,7 +90,7 @@ export default function Workshops() {
                                                 viewport={{ once: false }}
                                                 className="flex items-center gap-3 p-3 rounded-lg bg-white/5"
                                             >
-                                                <span className="text-xl">{item.icon}</span>
+                                                {item.icon}
                                                 <span className="text-sm text-[var(--color-foreground)]/80">
                                                     {item.label}
                                                 </span>

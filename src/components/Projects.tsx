@@ -3,6 +3,7 @@
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
+import { PawPrint } from "lucide-react";
 
 export default function Projects() {
     return (
@@ -28,8 +29,8 @@ export default function Projects() {
                                 {/* Left - Project Info */}
                                 <div className="flex-1 space-y-6">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-3xl shrink-0">
-                                            🐾
+                                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shrink-0">
+                                            <PawPrint className="w-7 h-7 text-white" />
                                         </div>
                                         <div>
                                             <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">

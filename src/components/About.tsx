@@ -3,12 +3,14 @@
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
+import { RefreshCw, Zap, Clock, Target, User } from "lucide-react";
+import { type ReactNode } from "react";
 
-const softSkills = [
-    { name: "Adaptability", icon: "🔄", color: "from-blue-500 to-cyan-400" },
-    { name: "Self-Confidence", icon: "💪", color: "from-amber-500 to-orange-400" },
-    { name: "Time Management", icon: "⏱️", color: "from-emerald-500 to-green-400" },
-    { name: "Assertiveness", icon: "🎯", color: "from-purple-500 to-pink-400" },
+const softSkills: { name: string; icon: ReactNode; color: string }[] = [
+    { name: "Adaptability", icon: <RefreshCw className="w-6 h-6 text-white" />, color: "from-blue-500 to-cyan-400" },
+    { name: "Self-Confidence", icon: <Zap className="w-6 h-6 text-white" />, color: "from-amber-500 to-orange-400" },
+    { name: "Time Management", icon: <Clock className="w-6 h-6 text-white" />, color: "from-emerald-500 to-green-400" },
+    { name: "Assertiveness", icon: <Target className="w-6 h-6 text-white" />, color: "from-purple-500 to-pink-400" },
 ];
 
 export default function About() {
@@ -28,8 +30,8 @@ export default function About() {
                     <ScrollReveal direction="left">
                         <div className="glass-card p-8 space-y-6">
                             <div className="flex items-center gap-3 mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-secondary)] flex items-center justify-center text-2xl">
-                                    👨‍💻
+                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-secondary)] flex items-center justify-center">
+                                    <User className="w-6 h-6 text-white" />
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-semibold text-white">
@@ -88,7 +90,7 @@ export default function About() {
                                     className="glass-card p-5 flex items-center gap-4 cursor-default group"
                                 >
                                     <div
-                                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${skill.color} flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform`}
+                                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${skill.color} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
                                     >
                                         {skill.icon}
                                     </div>

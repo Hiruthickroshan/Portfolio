@@ -3,10 +3,19 @@
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
+import { Trophy, Medal, Crown, Award } from "lucide-react";
+import { type ReactNode } from "react";
 
-const achievements = [
+const achievements: {
+    icon: ReactNode;
+    title: string;
+    subtitle: string;
+    description: string;
+    color: string;
+    glow: string;
+}[] = [
     {
-        icon: "🏆",
+        icon: <Trophy className="w-8 h-8 text-white" />,
         title: "National-Level Champion",
         subtitle: "Rope Skipping",
         description:
@@ -15,7 +24,7 @@ const achievements = [
         glow: "amber",
     },
     {
-        icon: "🥇",
+        icon: <Medal className="w-8 h-8 text-white" />,
         title: "SGFI Gold Medalist",
         subtitle: "School Games Federation of India",
         description:
@@ -24,7 +33,7 @@ const achievements = [
         glow: "yellow",
     },
     {
-        icon: "👨‍✈️",
+        icon: <Crown className="w-8 h-8 text-white" />,
         title: "Team Captain",
         subtitle: "National Rope Skipping Team",
         description:
@@ -64,7 +73,7 @@ export default function Leadership() {
                                 <motion.div
                                     whileHover={{ rotate: [0, -10, 10, 0] }}
                                     transition={{ duration: 0.5 }}
-                                    className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-4xl mb-6 shadow-lg`}
+                                    className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-6 shadow-lg`}
                                 >
                                     {item.icon}
                                 </motion.div>
@@ -87,7 +96,9 @@ export default function Leadership() {
                 <ScrollReveal delay={0.5}>
                     <div className="mt-12 glass-card p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden">
                         <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-4">
-                            <div className="text-5xl">🏅</div>
+                            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-400 flex items-center justify-center">
+                                <Award className="w-8 h-8 text-white" />
+                            </div>
                             <div>
                                 <h3 className="text-xl md:text-2xl font-bold text-white">
                                     National-Level Athlete

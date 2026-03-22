@@ -1,6 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
+
+const basePath = process.env.NODE_ENV === "production" ? "/Portfolio" : "";
 
 export default function Hero() {
     return (
@@ -80,13 +83,30 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.3 }}
-                    className="text-base sm:text-lg text-[var(--color-muted)]/80 mb-10 max-w-2xl mx-auto"
+                    className="text-base sm:text-lg text-[var(--color-muted)]/80 mb-8 max-w-2xl mx-auto"
                 >
                     Electronics &amp; Communication Engineering undergraduate at{" "}
                     <span className="text-[var(--color-accent-light)]">
                         Government College of Engineering, Erode
                     </span>
                 </motion.p>
+
+                {/* Download Resume Button */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.35 }}
+                    className="mb-10 flex flex-col items-center"
+                >
+                    <a
+                        href={`${basePath}/Hiruthickroshan_Resume.pdf`}
+                        download
+                        className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-sky-500 via-sky-400 to-cyan-400 text-white font-bold text-base sm:text-lg hover:shadow-2xl hover:shadow-sky-400/30 transition-all duration-300 hover:scale-105 active:scale-[0.98]"
+                    >
+                        <Download className="w-5 h-5" />
+                        Download Resume
+                    </a>
+                </motion.div>
 
                 {/* CTA Buttons */}
                 <motion.div
