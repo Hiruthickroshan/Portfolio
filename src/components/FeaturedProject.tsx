@@ -31,18 +31,7 @@ export default function FeaturedProject() {
                 {/* Section label */}
                 <ScrollReveal>
                     <div className="text-center mb-12">
-                        <motion.div
-                            initial={{ opacity: 0, y: 16 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            viewport={{ once: false }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 mb-6"
-                        >
-                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                            <span className="text-sm text-[var(--color-accent-light)] font-medium">
-                                Final Year Project
-                            </span>
-                        </motion.div>
+
                         <h2 className="text-3xl md:text-4xl font-bold mb-3">
                             <span className="gradient-text">Featured Project</span>
                         </h2>
