@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { ThemeToggle } from "./ThemeToggle";
 const navLinks = [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
@@ -42,7 +42,7 @@ export default function Navbar() {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? "bg-[#121218]/80 backdrop-blur-xl border-b border-[var(--color-border)]"
+                    ? "bg-[var(--color-background)]/80 backdrop-blur-xl border-b border-[var(--color-border)]"
                     : "bg-transparent"
                     }`}
             >
@@ -50,7 +50,7 @@ export default function Navbar() {
                     {/* Logo */}
                     <a
                         href="#home"
-                        className="text-xl font-bold tracking-tight text-[var(--color-foreground)] dark:text-white transition-colors"
+                        className="text-xl font-bold tracking-tight text-[var(--color-foreground)] transition-colors"
                     >
                         Hiruthickroshan
                     </a>
@@ -71,13 +71,16 @@ export default function Navbar() {
                         ))}
                     </div>
 
-                    {/* CTA Button */}
-                    <a
-                        href="mailto:hiruthick1947@gmail.com"
-                        className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-secondary)] text-white hover:shadow-lg hover:shadow-[var(--color-accent)]/25 transition-all duration-300 hover:scale-105"
-                    >
-                        Let&apos;s Talk
-                    </a>
+                    {/* Desktop Actions */}
+                    <div className="hidden md:flex items-center gap-4">
+                        <ThemeToggle />
+                        <a
+                            href="mailto:hiruthick1947@gmail.com"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-secondary)] text-white hover:shadow-lg hover:shadow-[var(--color-accent)]/25 transition-all duration-300 hover:scale-105"
+                        >
+                            Let&apos;s Talk
+                        </a>
+                    </div>
 
                     {/* Mobile Toggle */}
                     <button
@@ -86,15 +89,15 @@ export default function Navbar() {
                         aria-label="Toggle menu"
                     >
                         <span
-                            className={`w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-2" : ""
+                            className={`w-6 h-0.5 bg-[var(--color-foreground)] transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-2" : ""
                                 }`}
                         />
                         <span
-                            className={`w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "opacity-0" : ""
+                            className={`w-6 h-0.5 bg-[var(--color-foreground)] transition-all duration-300 ${mobileOpen ? "opacity-0" : ""
                                 }`}
                         />
                         <span
-                            className={`w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""
+                            className={`w-6 h-0.5 bg-[var(--color-foreground)] transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""
                                 }`}
                         />
                     </button>
@@ -109,7 +112,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed inset-0 z-40 bg-[#121218]/95 backdrop-blur-xl pt-24 px-6 md:hidden"
+                        className="fixed inset-0 z-40 bg-[var(--color-background)]/95 backdrop-blur-xl pt-24 px-6 md:hidden"
                     >
                         <div className="flex flex-col gap-2">
                             {navLinks.map((link, i) => (
@@ -137,6 +140,14 @@ export default function Navbar() {
                             >
                                 Let&apos;s Talk
                             </motion.a>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.7 }}
+                                className="mt-2 flex justify-center"
+                            >
+                                <ThemeToggle />
+                            </motion.div>
                         </div>
                     </motion.div>
                 )}
