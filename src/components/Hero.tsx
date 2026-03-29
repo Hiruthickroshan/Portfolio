@@ -64,7 +64,7 @@ export default function Hero() {
                     transition={{ duration: 0.7, delay: 0.1 }}
                     className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6"
                 >
-                    <span className="text-white">Hi, I&apos;m </span>
+                    <span className="text-[var(--color-foreground)]">Hi, I&apos;m </span>
                     <span className="gradient-text">Hiruthick</span>
                 </motion.h1>
 

@@ -119,7 +119,7 @@ export default function OpenSource() {
                             </div>
 
                             <div className="flex-1 text-center sm:text-left">
-                                <h3 className="text-xl font-bold text-white">
+                                <h3 className="text-xl font-bold text-[var(--color-foreground)]">
                                     @{GITHUB_USERNAME}
                                 </h3>
                                 {user?.bio && (
@@ -129,19 +129,19 @@ export default function OpenSource() {
                                 )}
                                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 mt-3">
                                     <span className="text-sm text-[var(--color-foreground)]/70">
-                                        <span className="font-semibold text-white">
+                                        <span className="font-semibold text-[var(--color-foreground)]">
                                             {user?.public_repos ?? 0}
                                         </span>{" "}
                                         repos
                                     </span>
                                     <span className="text-sm text-[var(--color-foreground)]/70">
-                                        <span className="font-semibold text-white">
+                                        <span className="font-semibold text-[var(--color-foreground)]">
                                             {user?.followers ?? 0}
                                         </span>{" "}
                                         followers
                                     </span>
                                     <span className="text-sm text-[var(--color-foreground)]/70">
-                                        <span className="font-semibold text-white">
+                                        <span className="font-semibold text-[var(--color-foreground)]">
                                             {user?.following ?? 0}
                                         </span>{" "}
                                         following
@@ -153,7 +153,7 @@ export default function OpenSource() {
                                 href={`https://github.com/${GITHUB_USERNAME}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-5 py-2.5 rounded-full bg-white/10 text-white text-sm font-medium hover:bg-white/20 transition-colors"
+                                className="px-5 py-2.5 rounded-full bg-[var(--color-surface-light)]/80 text-[var(--color-foreground)] text-sm font-medium hover:bg-[var(--color-border)]/50 transition-colors"
                             >
                                 View Profile →
                             </a>
@@ -205,9 +205,9 @@ export default function OpenSource() {
                                 key={i}
                                 className="glass-card p-6 animate-pulse"
                             >
-                                <div className="h-4 bg-white/10 rounded w-3/4 mb-3" />
-                                <div className="h-3 bg-white/5 rounded w-full mb-2" />
-                                <div className="h-3 bg-white/5 rounded w-2/3" />
+                                <div className="h-4 bg-[var(--color-surface-light)]/80 rounded w-3/4 mb-3" />
+                                <div className="h-3 bg-[var(--color-surface-light)] rounded w-full mb-2" />
+                                <div className="h-3 bg-[var(--color-surface-light)] rounded w-2/3" />
                             </div>
                         ))}
                     </div>
@@ -219,7 +219,7 @@ export default function OpenSource() {
                     <ScrollReveal>
                         <div className="glass-card p-10 text-center max-w-2xl mx-auto">
                             <div className="text-5xl mb-4">🚀</div>
-                            <h3 className="text-xl font-semibold text-white mb-3">
+                            <h3 className="text-xl font-semibold text-[var(--color-foreground)] mb-3">
                                 Projects Coming Soon!
                             </h3>
                             <p className="text-[var(--color-muted)] mb-6">
@@ -268,7 +268,7 @@ export default function OpenSource() {
                                                 d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
                                             />
                                         </svg>
-                                        <h4 className="font-semibold text-white group-hover:text-[var(--color-accent-light)] transition-colors truncate">
+                                        <h4 className="font-semibold text-[var(--color-foreground)] group-hover:text-[var(--color-accent-light)] transition-colors truncate">
                                             {repo.name}
                                         </h4>
                                     </div>

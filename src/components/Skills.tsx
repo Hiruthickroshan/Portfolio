@@ -94,7 +94,7 @@ export default function Skills() {
                                     {/* Header */}
                                     <div className="flex items-center gap-3 mb-2">
                                         <div
-                                            className="w-10 h-10 rounded-lg flex items-center justify-center text-white text-lg"
+                                            className="w-10 h-10 rounded-lg flex items-center justify-center text-[var(--color-foreground)] text-lg"
                                             style={{
                                                 background: `linear-gradient(135deg, ${cat.gradientFrom}, ${cat.gradientTo})`,
                                             }}
@@ -102,7 +102,7 @@ export default function Skills() {
                                             <i className={cat.icon} />
                                         </div>
                                         <div>
-                                            <h3 className="text-lg font-semibold text-white leading-tight">
+                                            <h3 className="text-lg font-semibold text-[var(--color-foreground)] leading-tight">
                                                 {cat.title}
                                             </h3>
                                             <p className="text-xs text-[var(--color-muted)]">

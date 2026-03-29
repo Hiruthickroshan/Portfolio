@@ -31,10 +31,10 @@ export default function About() {
                         <div className="glass-card p-8 space-y-6">
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-secondary)] flex items-center justify-center">
-                                    <User className="w-6 h-6 text-white" />
+                                    <User className="w-6 h-6 text-[var(--color-foreground)]" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-white">
+                                    <h3 className="text-lg font-semibold text-[var(--color-foreground)]">
                                         Hiruthickroshan E
                                     </h3>
                                     <p className="text-sm text-[var(--color-muted)]">
@@ -61,11 +61,11 @@ export default function About() {
 
                             {/* Quick stats */}
                             <div className="grid grid-cols-2 gap-4 pt-4">
-                                <div className="text-center p-4 rounded-xl bg-white/5">
+                                <div className="text-center p-4 rounded-xl bg-[var(--color-surface-light)]">
                                     <p className="text-2xl font-bold gradient-text">GCE</p>
                                     <p className="text-xs text-[var(--color-muted)] mt-1">Erode</p>
                                 </div>
-                                <div className="text-center p-4 rounded-xl bg-white/5">
+                                <div className="text-center p-4 rounded-xl bg-[var(--color-surface-light)]">
                                     <p className="text-2xl font-bold gradient-text">ECE</p>
                                     <p className="text-xs text-[var(--color-muted)] mt-1">Branch</p>
                                 </div>
@@ -76,7 +76,7 @@ export default function About() {
                     {/* Soft skills */}
                     <ScrollReveal direction="right">
                         <div className="space-y-4">
-                            <h3 className="text-xl font-semibold text-white mb-6">
+                            <h3 className="text-xl font-semibold text-[var(--color-foreground)] mb-6">
                                 Interpersonal Skills
                             </h3>
                             {softSkills.map((skill, i) => (
@@ -95,8 +95,8 @@ export default function About() {
                                         {skill.icon}
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-white">{skill.name}</h4>
-                                        <div className="mt-2 h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                                        <h4 className="font-semibold text-[var(--color-foreground)]">{skill.name}</h4>
+                                        <div className="mt-2 h-1.5 w-full bg-[var(--color-surface-light)] rounded-full overflow-hidden">
                                             <motion.div
                                                 initial={{ width: 0 }}
                                                 whileInView={{ width: "100%" }}

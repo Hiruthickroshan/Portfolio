@@ -62,8 +62,8 @@ export default function Navbar() {
                                 key={link.href}
                                 href={link.href}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeSection === link.href.slice(1)
-                                    ? "text-white bg-[var(--color-accent)]/20"
-                                    : "text-[var(--color-muted)] hover:text-white hover:bg-white/5"
+                                    ? "text-[var(--color-foreground)] font-semibold bg-[var(--color-accent)]/20"
+                                    : "text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-surface-light)]"
                                     }`}
                             >
                                 {link.label}
@@ -124,8 +124,8 @@ export default function Navbar() {
                                     transition={{ delay: i * 0.1 }}
                                     onClick={() => setMobileOpen(false)}
                                     className={`px-6 py-4 rounded-2xl text-lg font-medium transition-all ${activeSection === link.href.slice(1)
-                                        ? "text-white bg-[var(--color-accent)]/20"
-                                        : "text-[var(--color-muted)] hover:text-white hover:bg-white/5"
+                                        ? "text-[var(--color-foreground)] font-semibold bg-[var(--color-accent)]/20"
+                                        : "text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-surface-light)]"
                                         }`}
                                 >
                                     {link.label}

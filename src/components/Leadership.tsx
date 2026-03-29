@@ -15,7 +15,7 @@ const achievements: {
     glow: string;
 }[] = [
     {
-        icon: <Trophy className="w-8 h-8 text-white" />,
+        icon: <Trophy className="w-8 h-8 text-[var(--color-foreground)]" />,
         title: "National-Level Champion",
         subtitle: "Rope Skipping",
         description:
@@ -24,7 +24,7 @@ const achievements: {
         glow: "amber",
     },
     {
-        icon: <Medal className="w-8 h-8 text-white" />,
+        icon: <Medal className="w-8 h-8 text-[var(--color-foreground)]" />,
         title: "SGFI Gold Medalist",
         subtitle: "School Games Federation of India",
         description:
@@ -33,7 +33,7 @@ const achievements: {
         glow: "yellow",
     },
     {
-        icon: <Crown className="w-8 h-8 text-white" />,
+        icon: <Crown className="w-8 h-8 text-[var(--color-foreground)]" />,
         title: "Team Captain",
         subtitle: "National Rope Skipping Team",
         description:
@@ -78,7 +78,7 @@ export default function Leadership() {
                                     {item.icon}
                                 </motion.div>
 
-                                <h3 className="text-xl font-bold text-white mb-1 relative z-10">
+                                <h3 className="text-xl font-bold text-[var(--color-foreground)] mb-1 relative z-10">
                                     {item.title}
                                 </h3>
                                 <p className="text-sm text-[var(--color-accent-light)] font-medium mb-4 relative z-10">
@@ -97,10 +97,10 @@ export default function Leadership() {
                     <div className="mt-12 glass-card p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden">
                         <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-4">
                             <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-400 flex items-center justify-center">
-                                <Award className="w-8 h-8 text-white" />
+                                <Award className="w-8 h-8 text-[var(--color-foreground)]" />
                             </div>
                             <div>
-                                <h3 className="text-xl md:text-2xl font-bold text-white">
+                                <h3 className="text-xl md:text-2xl font-bold text-[var(--color-foreground)]">
                                     National-Level Athlete
                                 </h3>
                                 <p className="text-sm md:text-base text-[var(--color-muted)] mt-1">

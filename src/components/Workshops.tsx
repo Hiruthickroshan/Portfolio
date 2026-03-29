@@ -35,13 +35,13 @@ export default function Workshops() {
                                 <div className="flex-1 space-y-6">
                                     <div className="flex items-start gap-4">
                                         <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shrink-0">
-                                            <Rocket className="w-7 h-7 text-white" />
+                                            <Rocket className="w-7 h-7 text-[var(--color-foreground)]" />
                                         </div>
                                         <div>
                                             <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
                                                 Workshop — 2024
                                             </span>
-                                            <h3 className="text-2xl font-bold text-white mt-1">
+                                            <h3 className="text-2xl font-bold text-[var(--color-foreground)] mt-1">
                                                 Model Rocketry Workshop
                                             </h3>
                                             <p className="text-[var(--color-muted)] text-sm mt-1">
@@ -88,7 +88,7 @@ export default function Workshops() {
                                                 whileInView={{ opacity: 1, x: 0 }}
                                                 transition={{ delay: 0.3 + i * 0.1 }}
                                                 viewport={{ once: false }}
-                                                className="flex items-center gap-3 p-3 rounded-lg bg-white/5"
+                                                className="flex items-center gap-3 p-3 rounded-lg bg-[var(--color-surface-light)]"
                                             >
                                                 {item.icon}
                                                 <span className="text-sm text-[var(--color-foreground)]/80">

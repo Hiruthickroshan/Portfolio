@@ -54,10 +54,10 @@ export default function FeaturedProject() {
                                 <div className="flex-1 space-y-6">
                                     <div className="flex items-start gap-4">
                                         <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--color-accent)] to-emerald-500 flex items-center justify-center shrink-0">
-                                            <Shield className="w-7 h-7 text-white" />
+                                            <Shield className="w-7 h-7 text-[var(--color-foreground)]" />
                                         </div>
                                         <div>
-                                            <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                                            <h3 className="text-2xl md:text-3xl font-bold text-[var(--color-foreground)] leading-tight">
                                                 Intelligent Secure Network Access Management System
                                             </h3>
                                             <p className="text-sm text-[var(--color-muted)] mt-2">
@@ -131,7 +131,7 @@ export default function FeaturedProject() {
                                     </div>
 
                                     {/* Architecture visual */}
-                                    <div className="hidden lg:block p-5 rounded-xl bg-white/5 border border-white/5">
+                                    <div className="hidden lg:block p-5 rounded-xl bg-[var(--color-surface-light)] border border-[var(--color-border)]">
                                         <h4 className="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider mb-4">
                                             Architecture Flow
                                         </h4>
@@ -151,7 +151,7 @@ export default function FeaturedProject() {
                                                         </span>
                                                     </div>
                                                     {i < arr.length - 1 && (
-                                                        <div className="w-px h-4 bg-white/10 ml-1" />
+                                                        <div className="w-px h-4 bg-[var(--color-surface-light)]/80 ml-1" />
                                                     )}
                                                 </div>
                                             ))}
