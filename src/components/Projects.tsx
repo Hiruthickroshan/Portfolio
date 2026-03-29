@@ -3,7 +3,7 @@
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
-import { PawPrint } from "lucide-react";
+import { PawPrint, Github } from "lucide-react";
 
 export default function Projects() {
     return (
@@ -74,6 +74,19 @@ export default function Projects() {
                                                 </motion.li>
                                             ))}
                                         </ul>
+                                    </div>
+
+                                    {/* Project Links */}
+                                    <div className="pt-2">
+                                        <a
+                                            href="https://github.com/Hiruthickroshan/Pet-Adoption-Matchmaker"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-white hover:bg-white/10 hover:border-amber-500/30 transition-all duration-300 hover:scale-[1.02]"
+                                        >
+                                            <Github className="w-4 h-4" />
+                                            View Source
+                                        </a>
                                     </div>
                                 </div>
 
