@@ -99,7 +99,7 @@ export default function Hero() {
                     className="mb-10 flex flex-col items-center"
                 >
                     <a
-                        href={`${basePath}/Hiruthickroshan_Resume.pdf`}
+                        href={`${basePath}/Hiruthickroshan_Resume.pdf?v=20260329`}
                         download
                         className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-sky-500 via-sky-400 to-cyan-400 text-white font-bold text-base sm:text-lg hover:shadow-2xl hover:shadow-sky-400/30 transition-all duration-300 hover:scale-105 active:scale-[0.98]"
                     >
