@@ -10,4 +10,4 @@ This website was designed and created by **Hiruthickroshan E** to showcase my te
 - **Icons:** Lucide React & DevIcons
 
 ---
-*Developed by [Hiruthickroshan E](https://github.com/Yogesh-0901)*
+*Developed by [Hiruthickroshan E](https://github.com/Hiruthickroshan)*
