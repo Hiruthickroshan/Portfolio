@@ -46,7 +46,7 @@
 }
 
 html {
-  /* scroll-behavior handled by Lenis for premium smooth scrolling */
+  scroll-behavior: smooth; /* fallback for anchor navigation on mobile/touch */
 }
 
 body {
