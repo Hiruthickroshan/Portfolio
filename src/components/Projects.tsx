@@ -63,10 +63,10 @@ export default function Projects() {
                                             ].map((item, i) => (
                                                 <motion.li
                                                     key={i}
-                                                    initial={{ opacity: 0, x: -20 }}
+                                                    initial={{ opacity: 0, x: -15 }}
                                                     whileInView={{ opacity: 1, x: 0 }}
-                                                    transition={{ delay: 0.3 + i * 0.1 }}
-                                                    viewport={{ once: false }}
+                                                    transition={{ delay: 0.15 + i * 0.08, duration: 0.35 }}
+                                                    viewport={{ once: true }}
                                                     className="flex items-start gap-3 text-sm text-[var(--color-foreground)]/70"
                                                 >
                                                     <span className="text-amber-400 mt-1">▹</span>

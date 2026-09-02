@@ -116,13 +116,13 @@ export default function Skills() {
                                         {cat.skills.map((skill, i) => (
                                             <motion.div
                                                 key={skill.name}
-                                                initial={{ opacity: 0, x: -16 }}
+                                                initial={{ opacity: 0, x: -12 }}
                                                 whileInView={{ opacity: 1, x: 0 }}
                                                 transition={{
-                                                    delay: 0.2 + i * 0.1,
-                                                    duration: 0.4,
+                                                    delay: 0.1 + i * 0.08,
+                                                    duration: 0.35,
                                                 }}
-                                                viewport={{ once: false }}
+                                                viewport={{ once: true }}
                                                 className="skill-badge"
                                             >
                                                 <i
@@ -140,7 +140,7 @@ export default function Skills() {
                 </div>
 
                 {/* Additional Skills Row */}
-                <ScrollReveal delay={0.3}>
+                <ScrollReveal delay={0.2}>
                     <div className="glass-card p-7">
                         <h3 className="text-sm font-semibold text-[var(--color-muted)] uppercase tracking-wider mb-5">
                             Also proficient in
@@ -149,13 +149,13 @@ export default function Skills() {
                             {additionalSkills.map((skill, i) => (
                                 <motion.div
                                     key={skill.name}
-                                    initial={{ opacity: 0, scale: 0.85 }}
+                                    initial={{ opacity: 0, scale: 0.9 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     transition={{
-                                        delay: 0.1 + i * 0.08,
-                                        duration: 0.35,
+                                        delay: 0.05 + i * 0.06,
+                                        duration: 0.3,
                                     }}
-                                    viewport={{ once: false }}
+                                    viewport={{ once: true }}
                                     className="skill-badge"
                                 >
                                     <i

@@ -84,24 +84,24 @@ export default function About() {
                                     key={skill.name}
                                     initial={{ opacity: 0, x: 30 }}
                                     whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.15, duration: 0.5 }}
-                                    viewport={{ once: false }}
-                                    whileHover={{ x: 8 }}
+                                    transition={{ delay: i * 0.1, duration: 0.4 }}
+                                    viewport={{ once: true }}
+                                    whileHover={{ x: 6 }}
                                     className="glass-card p-5 flex items-center gap-4 cursor-default group"
                                 >
                                     <div
-                                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${skill.color} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}
+                                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${skill.color} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform`}
                                     >
                                         {skill.icon}
                                     </div>
-                                    <div>
+                                    <div className="flex-1 min-w-0">
                                         <h4 className="font-semibold text-[var(--color-foreground)]">{skill.name}</h4>
                                         <div className="mt-2 h-1.5 w-full bg-[var(--color-surface-light)] rounded-full overflow-hidden">
                                             <motion.div
                                                 initial={{ width: 0 }}
                                                 whileInView={{ width: "100%" }}
-                                                transition={{ delay: 0.3 + i * 0.15, duration: 1 }}
-                                                viewport={{ once: false }}
+                                                transition={{ delay: 0.2 + i * 0.1, duration: 0.8 }}
+                                                viewport={{ once: true }}
                                                 className={`h-full rounded-full bg-gradient-to-r ${skill.color}`}
                                             />
                                         </div>

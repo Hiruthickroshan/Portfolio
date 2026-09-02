@@ -16,23 +16,22 @@ export default function ScrollReveal({
     className = "",
     delay = 0,
     direction = "up",
-    duration = 0.6,
+    duration = 0.5,
 }: ScrollRevealProps) {
     const directionOffset = {
-        up: { y: 40 },
-        down: { y: -40 },
-        left: { x: 40 },
-        right: { x: -40 },
+        up: { y: 30 },
+        down: { y: -30 },
+        left: { x: 30 },
+        right: { x: -30 },
     };
 
     return (
         <motion.div
             initial={{ opacity: 0, ...directionOffset[direction] }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration, delay, ease: "easeOut" }}
-            viewport={{ once: false, margin: "-50px" }}
+            transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: "-30px" }}
             className={className}
-            style={{ willChange: "transform, opacity" }}
         >
             {children}
         </motion.div>
