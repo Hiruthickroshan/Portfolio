@@ -3,101 +3,82 @@
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
-import { Rocket, Microscope, Flame, Users, Wrench } from "lucide-react";
-import { type ReactNode } from "react";
 
-const takeaways: { icon: ReactNode; label: string }[] = [
-    { icon: <Microscope className="w-5 h-5 text-cyan-400" />, label: "Aerodynamics fundamentals" },
-    { icon: <Flame className="w-5 h-5 text-cyan-400" />, label: "Propulsion mechanics" },
-    { icon: <Users className="w-5 h-5 text-cyan-400" />, label: "Team collaboration" },
-    { icon: <Wrench className="w-5 h-5 text-cyan-400" />, label: "Hands-on fabrication" },
+const keyTakeaways = [
+    { label: "Aerodynamics & Flight Dynamics", icon: "ri-windy-line" },
+    { label: "Solid Propulsion & Staging", icon: "ri-fire-line" },
+    { label: "Rocket Airframe Construction", icon: "ri-tools-line" },
+    { label: "Collaborative Mission Engineering", icon: "ri-team-line" },
 ];
 
 export default function Workshops() {
     return (
-        <section className="py-24 relative">
+        <section className="py-16 relative">
             <div className="max-w-6xl mx-auto px-6 relative z-10">
                 <SectionHeading
-                    title="Workshops & Continuous Learning"
-                    subtitle="Hands-on experiences that shape engineering excellence"
+                    subtitle="CONTINUOUS LEARNING"
+                    title="Workshops & Space Tech"
                 />
 
                 <ScrollReveal>
                     <motion.div
                         whileHover={{ y: -4 }}
-                        className="glass-card overflow-hidden max-w-4xl mx-auto"
+                        className="bedim-card p-8 sm:p-12 max-w-5xl mx-auto"
                     >
-                        <div className="h-1.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-[var(--color-accent)]" />
-
-                        <div className="p-8 md:p-10">
-                            <div className="flex flex-col md:flex-row gap-8">
-                                {/* Left - Main Info */}
-                                <div className="flex-1 space-y-6">
-                                    <div className="flex items-start gap-4">
-                                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shrink-0">
-                                            <Rocket className="w-7 h-7 text-[var(--color-foreground)]" />
-                                        </div>
-                                        <div>
-                                            <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
-                                                Workshop — 2024
-                                            </span>
-                                            <h3 className="text-2xl font-bold text-[var(--color-foreground)] mt-1">
-                                                Model Rocketry Workshop
-                                            </h3>
-                                            <p className="text-[var(--color-muted)] text-sm mt-1">
-                                                IIST Trivandrum (Indian Institute of Space Science and Technology)
-                                            </p>
-                                        </div>
+                        <div className="grid lg:grid-cols-12 gap-8 items-center">
+                            {/* Left Column (7 cols) */}
+                            <div className="lg:col-span-7 space-y-5">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-[var(--first-color)]/20 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-3xl">
+                                        <i className="ri-rocket-2-line" />
                                     </div>
-
-                                    <p className="text-[var(--color-foreground)]/80 leading-relaxed">
-                                        Participated in an intensive hands-on workshop at one of India&apos;s
-                                        premier space institutions, gaining practical experience in rocket
-                                        design, construction, and launch. This immersive experience
-                                        strengthened my understanding of core engineering principles.
-                                    </p>
-
-                                    <div className="flex flex-wrap gap-2">
-                                        {[
-                                            "Aerodynamics",
-                                            "Propulsion Systems",
-                                            "Teamwork",
-                                            "Hands-on Engineering",
-                                            "Rocket Design",
-                                        ].map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="px-3 py-1.5 text-xs font-medium rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
-                                            >
-                                                {tag}
+                                    <div>
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
+                                                Space Engineering Workshop
                                             </span>
-                                        ))}
+                                            <span className="text-xs px-2 py-0.5 rounded-full bg-[var(--container-color-light)] text-[var(--text-color)] font-semibold">
+                                                IIST Trivandrum
+                                            </span>
+                                        </div>
+                                        <h3 className="font-syne text-2xl sm:text-3xl font-bold text-[var(--fg)] mt-1">
+                                            Model Rocketry Workshop
+                                        </h3>
                                     </div>
                                 </div>
 
-                                {/* Right - Key Takeaways */}
-                                <div className="md:w-56 shrink-0">
-                                    <h4 className="text-sm font-semibold text-[var(--color-muted)] uppercase tracking-wider mb-4">
-                                        Key Takeaways
-                                    </h4>
-                                    <div className="space-y-3">
-                                        {takeaways.map((item, i) => (
-                                            <motion.div
-                                                key={item.label}
-                                                initial={{ opacity: 0, x: 15 }}
-                                                whileInView={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: 0.15 + i * 0.08, duration: 0.35 }}
-                                                viewport={{ once: true }}
-                                                className="flex items-center gap-3 p-3 rounded-lg bg-[var(--color-surface-light)]"
-                                            >
-                                                {item.icon}
-                                                <span className="text-sm text-[var(--color-foreground)]/80">
-                                                    {item.label}
-                                                </span>
-                                            </motion.div>
-                                        ))}
-                                    </div>
+                                <p className="text-[var(--text-color)] text-base leading-relaxed">
+                                    Attended an intensive hands-on technical workshop at the <strong className="text-[var(--fg)]">Indian Institute of Space Science and Technology (IIST)</strong>, Trivandrum. Engaged directly in model rocket aerodynamics calculation, payload balancing, structural fabrication, and live propulsion launch testing.
+                                </p>
+
+                                <div className="flex flex-wrap gap-2 pt-2">
+                                    {["Aerodynamics", "Solid Propulsion", "Airframe Fabrication", "Telemetry", "Team Synergy"].map((item) => (
+                                        <span
+                                            key={item}
+                                            className="px-3 py-1 rounded-full bg-[var(--container-color-light)] border border-[var(--border-color)] text-xs font-medium text-[var(--fg)]"
+                                        >
+                                            {item}
+                                        </span>
+                                    ))}
                                 </div>
+                            </div>
+
+                            {/* Right Column: Takeaways Grid (5 cols) */}
+                            <div className="lg:col-span-5 space-y-3 bg-[var(--container-color-light)]/50 p-6 rounded-2xl border border-[var(--border-color)]">
+                                <h4 className="font-syne text-xs font-bold text-[var(--text-color)] uppercase tracking-wider mb-2">
+                                    Key Takeaways &amp; Learnings:
+                                </h4>
+                                {keyTakeaways.map((takeaway, i) => (
+                                    <div
+                                        key={i}
+                                        className="p-3 rounded-xl bg-[var(--bg)]/80 border border-[var(--border-color)] flex items-center gap-3"
+                                    >
+                                        <i className={`${takeaway.icon} text-cyan-400 text-lg`} />
+                                        <span className="text-xs font-medium text-[var(--fg)]">
+                                            {takeaway.label}
+                                        </span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </motion.div>

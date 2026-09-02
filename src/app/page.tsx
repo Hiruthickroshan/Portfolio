@@ -6,8 +6,9 @@ import FeaturedProject from "@/components/FeaturedProject";
 import Projects from "@/components/Projects";
 import Workshops from "@/components/Workshops";
 import Leadership from "@/components/Leadership";
-
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ScrollUp from "@/components/ScrollUp";
 
 export default function Home() {
   return (
@@ -21,8 +22,10 @@ export default function Home() {
         <Projects />
         <Workshops />
         <Leadership />
+        <Contact />
       </main>
       <Footer />
+      <ScrollUp />
     </>
   );
 }

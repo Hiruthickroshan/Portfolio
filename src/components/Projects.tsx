@@ -3,136 +3,113 @@
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
-import { PawPrint, Github } from "lucide-react";
+
+const otherProjects = [
+    {
+        title: "Pet Adoption Matchmaker",
+        subtitle: "Database & DBMS Application",
+        description:
+            "Designed and built a full relational database schema that pairs rescued pets with suitable adopters using an intelligent weighted preference algorithm. Implemented complex SQL joins, indexing, and data constraints.",
+        tags: ["SQL", "DBMS", "Database Design", "Relational Schema", "Optimization"],
+        github: "https://github.com/Hiruthickroshan/Pet-Adoption-Matchmaker",
+        icon: "ri-heart-3-line",
+        iconColor: "text-amber-400",
+        codeSnippet: `SELECT pets.name, adopters.name,
+       MATCH_SCORE(pets.type, adopters.pref) AS score
+FROM pets
+JOIN adopters ON pets.species = adopters.species_pref
+WHERE health_cleared = 1
+ORDER BY score DESC;`,
+    },
+];
 
 export default function Projects() {
     return (
-        <section id="projects" className="py-24 relative">
-            <div
-                className="absolute top-1/2 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
-                style={{ background: "radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%)" }}
-            />
-
+        <section className="py-12 relative">
             <div className="max-w-6xl mx-auto px-6 relative z-10">
                 <SectionHeading
-                    title="Other Projects"
-                    subtitle="More engineering projects and practical applications"
+                    subtitle="ADDITIONAL WORK"
+                    title="Engineering Projects"
                 />
 
-                {/* ===== Project: Pet Adoption Matchmaker ===== */}
-                <ScrollReveal>
-                    <motion.div
-                        whileHover={{ y: -4 }}
-                        className="glass-card overflow-hidden group"
-                    >
-                        <div className="h-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500" />
-
-                        <div className="p-8 md:p-10">
-                            <div className="flex flex-col md:flex-row gap-8">
-                                {/* Left - Project Info */}
-                                <div className="flex-1 space-y-6">
-                                    <div className="flex items-start gap-4">
-                                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shrink-0">
-                                            <PawPrint className="w-7 h-7 text-[var(--color-foreground)]" />
+                <div className="grid md:grid-cols-1 gap-8">
+                    {otherProjects.map((project, idx) => (
+                        <ScrollReveal key={project.title} delay={idx * 0.1}>
+                            <motion.div
+                                whileHover={{ y: -4 }}
+                                className="bedim-card p-8 sm:p-10"
+                            >
+                                <div className="grid lg:grid-cols-12 gap-8 items-center">
+                                    {/* Left: Info */}
+                                    <div className="lg:col-span-7 space-y-5">
+                                        <div className="flex items-center gap-3">
+                                            <div className={`w-12 h-12 rounded-2xl bg-[var(--container-color-light)] border border-[var(--border-color)] flex items-center justify-center text-2xl ${project.iconColor}`}>
+                                                <i className={project.icon} />
+                                            </div>
+                                            <div>
+                                                <span className="text-xs font-bold text-[var(--first-color)] uppercase tracking-wider">
+                                                    {project.subtitle}
+                                                </span>
+                                                <h3 className="font-syne text-2xl font-bold text-[var(--fg)]">
+                                                    {project.title}
+                                                </h3>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">
-                                                Database Project
-                                            </span>
-                                            <h3 className="text-2xl font-bold text-[var(--color-foreground)] mt-1">
-                                                Pet Adoption Matchmaker
-                                            </h3>
-                                        </div>
-                                    </div>
 
-                                    <p className="text-[var(--color-foreground)]/80 leading-relaxed">
-                                        Designed and developed a robust database system that pairs
-                                        pets with adopters using intelligent matching criteria. Built
-                                        a comprehensive SQL-based solution with advanced data
-                                        querying and filtering logic to streamline the adoption
-                                        process.
-                                    </p>
+                                        <p className="text-[var(--text-color)] text-base leading-relaxed">
+                                            {project.description}
+                                        </p>
 
-                                    <div className="space-y-3">
-                                        <h4 className="text-sm font-semibold text-[var(--color-muted)] uppercase tracking-wider">
-                                            Key Highlights
-                                        </h4>
-                                        <ul className="space-y-2">
-                                            {[
-                                                "Designed a robust relational database schema for pet and adopter data",
-                                                "Utilized SQL for complex data querying and filtering logic",
-                                                "Implemented intelligent matching algorithm to pair pets with ideal adopters",
-                                                "Built end-to-end data pipeline for adoption workflow",
-                                            ].map((item, i) => (
-                                                <motion.li
-                                                    key={i}
-                                                    initial={{ opacity: 0, x: -15 }}
-                                                    whileInView={{ opacity: 1, x: 0 }}
-                                                    transition={{ delay: 0.15 + i * 0.08, duration: 0.35 }}
-                                                    viewport={{ once: true }}
-                                                    className="flex items-start gap-3 text-sm text-[var(--color-foreground)]/70"
-                                                >
-                                                    <span className="text-amber-400 mt-1">▹</span>
-                                                    {item}
-                                                </motion.li>
-                                            ))}
-                                        </ul>
-                                    </div>
-
-                                    {/* Project Links */}
-                                    <div className="pt-2">
-                                        <a
-                                            href="https://github.com/Hiruthickroshan/Pet-Adoption-Matchmaker"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--color-surface-light)] border border-[var(--color-border)] text-sm font-medium text-[var(--color-foreground)] hover:bg-[var(--color-surface-light)]/80 hover:border-amber-500/30 transition-all duration-300 hover:scale-[1.02]"
-                                        >
-                                            <Github className="w-4 h-4" />
-                                            View Source
-                                        </a>
-                                    </div>
-                                </div>
-
-                                {/* Right - Tech Stack */}
-                                <div className="md:w-64 shrink-0 space-y-6">
-                                    <div>
-                                        <h4 className="text-sm font-semibold text-[var(--color-muted)] uppercase tracking-wider mb-4">
-                                            Tech Stack
-                                        </h4>
-                                        <div className="flex flex-wrap gap-2">
-                                            {[
-                                                { name: "SQL", icon: "devicon-mysql-plain colored" },
-                                                { name: "DBMS", icon: "devicon-postgresql-plain colored" },
-                                                { name: "Database Design", icon: "devicon-sqldeveloper-plain" },
-                                                { name: "Query Optimization", icon: "devicon-azuresqldatabase-plain" },
-                                            ].map((tech) => (
+                                        {/* Tags */}
+                                        <div className="flex flex-wrap gap-2 pt-2">
+                                            {project.tags.map((tag) => (
                                                 <span
-                                                    key={tech.name}
-                                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20"
+                                                    key={tag}
+                                                    className="px-3 py-1 rounded-full bg-[var(--container-color-light)] border border-[var(--border-color)] text-xs font-medium text-[var(--fg)]"
                                                 >
-                                                    <i className={tech.icon} style={{ fontSize: "0.75rem" }} />
-                                                    {tech.name}
+                                                    {tag}
                                                 </span>
                                             ))}
                                         </div>
+
+                                        {/* Action Link */}
+                                        <div className="pt-2">
+                                            <a
+                                                href={project.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="btn-secondary group inline-flex items-center gap-2 text-sm"
+                                            >
+                                                <i className="ri-github-fill text-lg" />
+                                                <span>View on GitHub</span>
+                                                <i className="ri-arrow-right-up-line group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                            </a>
+                                        </div>
                                     </div>
 
-                                    {/* SQL visual */}
-                                    <div className="hidden md:block p-6 rounded-xl bg-[var(--color-surface-light)] border border-[var(--color-border)]">
-                                        <div className="space-y-2 font-mono text-xs text-[var(--color-muted)]">
-                                            <p><span className="text-amber-400">SELECT</span> pet.name, adopter.name</p>
-                                            <p><span className="text-amber-400">FROM</span> pets pet</p>
-                                            <p><span className="text-amber-400">JOIN</span> adopters adopter</p>
-                                            <p>  <span className="text-amber-400">ON</span> pet.type = adopter.pref</p>
-                                            <p><span className="text-amber-400">WHERE</span> match_score &gt; 0.8</p>
-                                            <p><span className="text-amber-400">ORDER BY</span> score <span className="text-amber-400">DESC</span>;</p>
+                                    {/* Right: Code Visual Block */}
+                                    <div className="lg:col-span-5">
+                                        <div className="rounded-2xl bg-[var(--bg)] border border-[var(--border-color)] overflow-hidden shadow-md">
+                                            <div className="px-4 py-3 bg-[var(--container-color-light)] border-b border-[var(--border-color)] flex items-center justify-between">
+                                                <div className="flex items-center gap-2">
+                                                    <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
+                                                    <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
+                                                    <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
+                                                </div>
+                                                <span className="text-[11px] font-mono text-[var(--text-color)]">
+                                                    query.sql
+                                                </span>
+                                            </div>
+                                            <pre className="p-4 text-xs font-mono text-[var(--text-color)] overflow-x-auto leading-relaxed">
+                                                <code>{project.codeSnippet}</code>
+                                            </pre>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </motion.div>
-                </ScrollReveal>
+                            </motion.div>
+                        </ScrollReveal>
+                    ))}
+                </div>
             </div>
         </section>
     );

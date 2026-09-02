@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
+
 const navLinks = [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
@@ -24,15 +25,14 @@ export default function Navbar() {
             if (!ticking) {
                 window.requestAnimationFrame(() => {
                     const scrollY = window.scrollY;
-                    setScrolled(scrollY > 40);
+                    setScrolled(scrollY > 30);
 
-                    // Determine active section without forced reflow loops
                     const sections = navLinks.map((l) => l.href.slice(1));
                     for (let i = sections.length - 1; i >= 0; i--) {
                         const el = document.getElementById(sections[i]);
                         if (el) {
-                            const rect = el.getBoundingClientRect();
-                            if (rect.top <= 160) {
+                            const top = el.offsetTop;
+                            if (scrollY >= top - 200) {
                                 setActiveSection(sections[i]);
                                 break;
                             }
@@ -51,117 +51,118 @@ export default function Navbar() {
 
     return (
         <>
-            <motion.nav
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? "bg-[var(--color-background)]/80 backdrop-blur-xl border-b border-[var(--color-border)]"
-                    : "bg-transparent"
-                    }`}
+            <motion.header
+                initial={{ y: -80, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
+                    scrolled
+                        ? "bg-[var(--bg)]/95 backdrop-blur-md border-b border-[var(--border-color)] shadow-sm"
+                        : "bg-transparent"
+                }`}
             >
-                <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+                <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
                     {/* Logo */}
                     <a
                         href="#home"
-                        className="text-xl font-bold tracking-tight text-[var(--color-foreground)] transition-colors"
+                        className="font-syne text-2xl font-bold tracking-tight text-[var(--fg)] group flex items-center gap-1.5"
                     >
-                        Hiruthickroshan
+                        <span>Hiruthick</span>
+                        <span className="w-2 h-2 rounded-full bg-[var(--first-color)] group-hover:scale-150 transition-transform" />
                     </a>
 
                     {/* Desktop Nav */}
-                    <div className="hidden md:flex items-center gap-1">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.href}
-                                href={link.href}
-                                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeSection === link.href.slice(1)
-                                    ? "text-[var(--color-foreground)] font-semibold bg-[var(--color-accent)]/20"
-                                    : "text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-surface-light)]"
+                    <nav className="hidden md:flex items-center gap-1 px-4 py-1.5 rounded-full bg-[var(--container-color)]/80 border border-[var(--border-color)] backdrop-blur-sm">
+                        {navLinks.map((link) => {
+                            const isActive = activeSection === link.href.slice(1);
+                            return (
+                                <a
+                                    key={link.href}
+                                    href={link.href}
+                                    className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                                        isActive
+                                            ? "text-[var(--fg)] font-semibold"
+                                            : "text-[var(--text-color)] hover:text-[var(--fg)]"
                                     }`}
-                            >
-                                {link.label}
-                            </a>
-                        ))}
-                    </div>
+                                >
+                                    {isActive && (
+                                        <motion.div
+                                            layoutId="activeNavIndicator"
+                                            className="absolute inset-0 rounded-full bg-[var(--first-color)]/15 border border-[var(--first-color)]/30"
+                                            transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                                        />
+                                    )}
+                                    <span className="relative z-10">{link.label}</span>
+                                </a>
+                            );
+                        })}
+                    </nav>
 
                     {/* Desktop Actions */}
                     <div className="hidden md:flex items-center gap-4">
                         <ThemeToggle />
                         <a
-                            href="mailto:hiruthick1947@gmail.com"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-secondary)] text-white hover:shadow-lg hover:shadow-[var(--color-accent)]/25 transition-all duration-300 hover:scale-105"
+                            href="#contact"
+                            className="btn-primary py-2.5 px-6 text-sm"
                         >
-                            Let&apos;s Talk
+                            <span>Let&apos;s Talk</span>
+                            <i className="ri-arrow-right-up-line text-lg" />
                         </a>
                     </div>
 
-                    {/* Mobile Toggle */}
-                    <button
-                        onClick={() => setMobileOpen(!mobileOpen)}
-                        className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5"
-                        aria-label="Toggle menu"
-                    >
-                        <span
-                            className={`w-6 h-0.5 bg-[var(--color-foreground)] transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-2" : ""
-                                }`}
-                        />
-                        <span
-                            className={`w-6 h-0.5 bg-[var(--color-foreground)] transition-all duration-300 ${mobileOpen ? "opacity-0" : ""
-                                }`}
-                        />
-                        <span
-                            className={`w-6 h-0.5 bg-[var(--color-foreground)] transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""
-                                }`}
-                        />
-                    </button>
+                    {/* Mobile Toggle & Theme */}
+                    <div className="flex md:hidden items-center gap-3">
+                        <ThemeToggle />
+                        <button
+                            onClick={() => setMobileOpen(!mobileOpen)}
+                            className="w-10 h-10 rounded-full bg-[var(--container-color)] border border-[var(--border-color)] flex items-center justify-center text-[var(--fg)] text-xl"
+                            aria-label="Toggle menu"
+                        >
+                            <i className={mobileOpen ? "ri-close-line" : "ri-menu-4-line"} />
+                        </button>
+                    </div>
                 </div>
-            </motion.nav>
+            </motion.header>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {mobileOpen && (
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
-                        className="fixed inset-0 z-40 bg-[var(--color-background)]/95 backdrop-blur-xl pt-24 px-6 md:hidden"
+                        transition={{ duration: 0.2 }}
+                        className="fixed inset-0 z-40 bg-[var(--bg)]/98 backdrop-blur-xl pt-28 px-6 md:hidden flex flex-col justify-between pb-12"
                     >
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-3">
                             {navLinks.map((link, i) => (
                                 <motion.a
                                     key={link.href}
                                     href={link.href}
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.1 }}
+                                    transition={{ delay: i * 0.04 }}
                                     onClick={() => setMobileOpen(false)}
-                                    className={`px-6 py-4 rounded-2xl text-lg font-medium transition-all ${activeSection === link.href.slice(1)
-                                        ? "text-[var(--color-foreground)] font-semibold bg-[var(--color-accent)]/20"
-                                        : "text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-surface-light)]"
-                                        }`}
+                                    className={`px-6 py-3.5 rounded-2xl text-lg font-medium transition-colors ${
+                                        activeSection === link.href.slice(1)
+                                            ? "text-[var(--fg)] font-bold bg-[var(--first-color)]/15 border border-[var(--first-color)]/30"
+                                            : "text-[var(--text-color)] hover:text-[var(--fg)] bg-[var(--container-color)]"
+                                    }`}
                                 >
                                     {link.label}
                                 </motion.a>
                             ))}
-                            <motion.a
-                                href="mailto:hiruthick1947@gmail.com"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.6 }}
-                                className="mt-4 px-6 py-4 rounded-2xl text-lg font-semibold text-center bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-secondary)] text-white"
+                        </div>
+
+                        <div className="pt-6">
+                            <a
+                                href="#contact"
+                                onClick={() => setMobileOpen(false)}
+                                className="btn-primary w-full justify-center text-center py-3.5 text-base"
                             >
-                                Let&apos;s Talk
-                            </motion.a>
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.7 }}
-                                className="mt-2 flex justify-center"
-                            >
-                                <ThemeToggle />
-                            </motion.div>
+                                <span>Get in Touch</span>
+                                <i className="ri-send-plane-fill" />
+                            </a>
                         </div>
                     </motion.div>
                 )}

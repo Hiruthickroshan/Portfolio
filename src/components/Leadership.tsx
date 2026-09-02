@@ -3,132 +3,98 @@
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
-import { Trophy, Medal, Crown, Award } from "lucide-react";
-import { type ReactNode } from "react";
 
-const achievements: {
-    icon: ReactNode;
-    title: string;
-    subtitle: string;
-    description: string;
-    color: string;
-    glow: string;
-}[] = [
+const achievements = [
     {
-        icon: <Trophy className="w-8 h-8 text-[var(--color-foreground)]" />,
         title: "National-Level Champion",
         subtitle: "Rope Skipping",
         description:
-            "Achieved championship status at the national level in competitive rope skipping, demonstrating exceptional athletic skill and dedication.",
-        color: "from-amber-500 to-yellow-400",
-        glow: "amber",
+            "Achieved championship glory on the national stage in competitive rope skipping, demonstrating precision, physical agility, and mental tenacity.",
+        icon: "ri-trophy-fill",
+        color: "text-amber-400",
+        badgeBg: "bg-amber-400/10 border-amber-400/20",
     },
     {
-        icon: <Medal className="w-8 h-8 text-[var(--color-foreground)]" />,
         title: "SGFI Gold Medalist",
         subtitle: "School Games Federation of India",
         description:
-            "Won the prestigious Gold Medal at the SGFI games, competing against top athletes from across the nation.",
-        color: "from-yellow-500 to-orange-400",
-        glow: "yellow",
+            "Earned the Gold Medal at the prestigious SGFI national games, competing against top-tier state athletes across India.",
+        icon: "ri-medal-fill",
+        color: "text-yellow-400",
+        badgeBg: "bg-yellow-400/10 border-yellow-400/20",
     },
     {
-        icon: <Crown className="w-8 h-8 text-[var(--color-foreground)]" />,
         title: "Team Captain",
-        subtitle: "National Rope Skipping Team",
+        subtitle: "National Rope Skipping Squad",
         description:
-            "Led the national rope skipping team as Captain, demonstrating leadership, strategic planning, and the ability to inspire and coordinate team members.",
-        color: "from-[var(--color-accent)] to-[var(--color-accent-secondary)]",
-        glow: "indigo",
+            "Captained the national squad, steering teammates through demanding practice regimens, coordination drills, and high-stakes competitions.",
+        icon: "ri-vip-crown-fill",
+        color: "text-[var(--first-color)]",
+        badgeBg: "bg-[var(--first-color)]/10 border-[var(--first-color)]/20",
     },
 ];
 
 export default function Leadership() {
     return (
         <section id="experience" className="py-24 relative">
-            {/* Background accents */}
-            <div
-                className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-                style={{ background: "radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%)" }}
-            />
-            <div
-                className="absolute bottom-1/3 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
-                style={{ background: "radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%)" }}
-            />
-
             <div className="max-w-6xl mx-auto px-6 relative z-10">
                 <SectionHeading
-                    title="Leadership & Achievements"
-                    subtitle="Athletic excellence meets leadership on the national stage"
+                    subtitle="HONORS & LEADERSHIP"
+                    title="Athletic & Leadership Milestones"
                 />
 
-                <div className="grid md:grid-cols-3 gap-6">
-                    {achievements.map((item, i) => (
-                        <ScrollReveal key={item.title} delay={i * 0.15}>
+                <div className="grid md:grid-cols-3 gap-8">
+                    {achievements.map((item, idx) => (
+                        <ScrollReveal key={item.title} delay={idx * 0.15}>
                             <motion.div
-                                whileHover={{ y: -8, scale: 1.02 }}
-                                transition={{ type: "spring", stiffness: 300 }}
-                                className="glass-card p-8 h-full flex flex-col items-center text-center group relative overflow-hidden"
+                                whileHover={{ y: -8 }}
+                                className="bedim-card p-8 h-full flex flex-col items-center text-center justify-between group"
                             >
-                                {/* Glow effect on hover */}
-                                <div
-                                    className={`absolute inset-0 bg-gradient-to-b ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                                />
+                                <div className="space-y-4 flex flex-col items-center">
+                                    {/* Icon */}
+                                    <div
+                                        className={`w-20 h-20 rounded-3xl ${item.badgeBg} border flex items-center justify-center text-4xl ${item.color} group-hover:scale-110 transition-transform shadow-lg`}
+                                    >
+                                        <i className={item.icon} />
+                                    </div>
 
-                                {/* Icon */}
-                                <motion.div
-                                    whileHover={{ rotate: [0, -10, 10, 0] }}
-                                    transition={{ duration: 0.5 }}
-                                    className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-6 shadow-lg`}
-                                >
-                                    {item.icon}
-                                </motion.div>
+                                    {/* Text */}
+                                    <h3 className="font-syne text-xl font-bold text-[var(--fg)]">
+                                        {item.title}
+                                    </h3>
+                                    <span className="text-xs font-semibold text-[var(--first-color)] uppercase tracking-wider block">
+                                        {item.subtitle}
+                                    </span>
+                                    <p className="text-[var(--text-color)] text-sm leading-relaxed">
+                                        {item.description}
+                                    </p>
+                                </div>
 
-                                <h3 className="text-xl font-bold text-[var(--color-foreground)] mb-1 relative z-10">
-                                    {item.title}
-                                </h3>
-                                <p className="text-sm text-[var(--color-accent-light)] font-medium mb-4 relative z-10">
-                                    {item.subtitle}
-                                </p>
-                                <p className="text-sm text-[var(--color-muted)] leading-relaxed relative z-10">
-                                    {item.description}
-                                </p>
+                                <div className="pt-6 w-full border-t border-[var(--border-color)] mt-6">
+                                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--text-color)]">
+                                        <i className="ri-award-line text-[var(--first-color)] text-base" />
+                                        National Excellence
+                                    </span>
+                                </div>
                             </motion.div>
                         </ScrollReveal>
                     ))}
                 </div>
 
-                {/* Athletics highlight banner */}
-                <ScrollReveal delay={0.5}>
-                    <div className="mt-12 glass-card p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden">
-                        <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-4">
-                            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-400 flex items-center justify-center">
-                                <Award className="w-8 h-8 text-[var(--color-foreground)]" />
+                {/* Banner */}
+                <ScrollReveal delay={0.4}>
+                    <div className="mt-12 bedim-card p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div className="flex items-center gap-5 text-center md:text-left">
+                            <div className="w-16 h-16 rounded-2xl bg-[var(--first-color)]/20 border border-[var(--first-color)]/40 text-[var(--first-color)] flex items-center justify-center text-3xl shrink-0">
+                                <i className="ri-fire-fill" />
                             </div>
                             <div>
-                                <h3 className="text-xl md:text-2xl font-bold text-[var(--color-foreground)]">
-                                    National-Level Athlete
-                                </h3>
-                                <p className="text-sm md:text-base text-[var(--color-muted)] mt-1">
-                                    Discipline, focus, and perseverance — from the sports field to
-                                    engineering
+                                <h4 className="font-syne text-xl sm:text-2xl font-bold text-[var(--fg)]">
+                                    Discipline Transferred into Engineering
+                                </h4>
+                                <p className="text-sm text-[var(--text-color)] mt-1">
+                                    The relentless work ethic, focus, and leadership forged on the sports field directly empower my engineering and software problem-solving.
                                 </p>
-                            </div>
-                        </div>
-                        <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-4 md:gap-6 w-full md:w-auto">
-                            <div className="text-center flex-1 md:flex-none">
-                                <p className="text-2xl md:text-3xl font-bold gradient-text">National</p>
-                                <p className="text-xs text-[var(--color-muted)]">Level</p>
-                            </div>
-                            <div className="hidden md:block w-px h-12 bg-[var(--color-border)]" />
-                            <div className="text-center flex-1 md:flex-none">
-                                <p className="text-2xl md:text-3xl font-bold gradient-text">Gold</p>
-                                <p className="text-xs text-[var(--color-muted)]">SGFI Medal</p>
-                            </div>
-                            <div className="hidden md:block w-px h-12 bg-[var(--color-border)]" />
-                            <div className="text-center flex-1 md:flex-none">
-                                <p className="text-2xl md:text-3xl font-bold gradient-text">Captain</p>
-                                <p className="text-xs text-[var(--color-muted)]">Team Lead</p>
                             </div>
                         </div>
                     </div>

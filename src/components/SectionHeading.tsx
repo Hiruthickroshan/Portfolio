@@ -17,17 +17,18 @@ export default function SectionHeading({
         <ScrollReveal
             className={`mb-16 ${align === "center" ? "text-center" : "text-left"}`}
         >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                <span className="gradient-text">{title}</span>
-            </h2>
             {subtitle && (
-                <p className="text-[var(--color-muted)] text-lg max-w-2xl mx-auto">
+                <span className="section-subtitle">
                     {subtitle}
-                </p>
+                </span>
             )}
+            <h2 className="section-title">
+                {title}
+            </h2>
             <div
-                className={`mt-4 h-1 w-20 rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-secondary)] ${align === "center" ? "mx-auto" : ""
-                    }`}
+                className={`mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-[var(--first-color)] to-[var(--first-color-light)] ${
+                    align === "center" ? "mx-auto" : ""
+                }`}
             />
         </ScrollReveal>
     );

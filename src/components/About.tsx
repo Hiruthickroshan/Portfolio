@@ -2,117 +2,132 @@
 
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
-import { motion } from "framer-motion";
-import { RefreshCw, Zap, Clock, Target, User } from "lucide-react";
-import { type ReactNode } from "react";
 
-const softSkills: { name: string; icon: ReactNode; color: string }[] = [
-    { name: "Adaptability", icon: <RefreshCw className="w-6 h-6 text-white" />, color: "from-blue-500 to-cyan-400" },
-    { name: "Self-Confidence", icon: <Zap className="w-6 h-6 text-white" />, color: "from-amber-500 to-orange-400" },
-    { name: "Time Management", icon: <Clock className="w-6 h-6 text-white" />, color: "from-emerald-500 to-green-400" },
-    { name: "Assertiveness", icon: <Target className="w-6 h-6 text-white" />, color: "from-purple-500 to-pink-400" },
+const personalInfo = [
+    { label: "Degree", value: "B.E. ECE (Graduate)" },
+    { label: "Institution", value: "GCE, Erode" },
+    { label: "Role", value: "Software Developer" },
+    { label: "Languages", value: "English, Tamil" },
+    { label: "Email", value: "hiruthick1947@gmail.com" },
+    { label: "Sports", value: "National Gold Medalist" },
+];
+
+const softSkills = [
+    {
+        name: "Adaptability & Rapid Learning",
+        desc: "Quick to master new frameworks, protocols, and technical environments.",
+        icon: "ri-refresh-line",
+    },
+    {
+        name: "Self-Driven & Goal Oriented",
+        desc: "Persistent approach to problem-solving and software execution.",
+        icon: "ri-flashlight-line",
+    },
+    {
+        name: "Time & Priority Management",
+        desc: "Disciplined task organization to deliver quality code on schedule.",
+        icon: "ri-time-line",
+    },
+    {
+        name: "Assertiveness & Team Leadership",
+        desc: "Clear communication and leadership honed as a national team captain.",
+        icon: "ri-focus-3-line",
+    },
 ];
 
 export default function About() {
     return (
         <section id="about" className="py-24 relative">
-            {/* Background accent */}
-            <div
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
-                style={{ background: "radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%)" }}
-            />
-
             <div className="max-w-6xl mx-auto px-6 relative z-10">
                 <SectionHeading
+                    subtitle="MY BIOGRAPHY"
                     title="About Me"
-                    subtitle="Driven by curiosity and a passion for engineering excellence"
                 />
 
-                <div className="grid md:grid-cols-2 gap-12 items-start">
-                    {/* Text content */}
-                    <ScrollReveal direction="left">
-                        <div className="glass-card p-8 space-y-6">
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-secondary)] flex items-center justify-center">
-                                    <User className="w-6 h-6 text-[var(--color-foreground)]" />
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-semibold text-[var(--color-foreground)]">
-                                        Hiruthickroshan E
+                <div className="grid lg:grid-cols-12 gap-10 items-start">
+                    
+                    {/* Left Column: Bio & Info Card (6 cols) */}
+                    <div className="lg:col-span-6 space-y-6">
+                        <ScrollReveal direction="left">
+                            <div className="bedim-card p-8 sm:p-10 space-y-6">
+                                <div className="space-y-4">
+                                    <h3 className="font-syne text-2xl sm:text-3xl font-bold text-[var(--fg)]">
+                                        Engineering Mind with an Athlete&apos;s Grit
                                     </h3>
-                                    <p className="text-sm text-[var(--color-muted)]">
-                                        ECE Undergraduate
+                                    <p className="text-[var(--text-color)] text-base leading-relaxed">
+                                        I am an <strong className="text-[var(--fg)]">Electronics and Communication Engineering graduate</strong> from <strong className="text-[var(--first-color)]">Government College of Engineering, Erode</strong>. I build reliable software systems, Zero-Trust network security architectures, and scalable data solutions.
+                                    </p>
+                                    <p className="text-[var(--text-color)] text-base leading-relaxed">
+                                        Beyond writing clean code, I am a <strong className="text-[var(--fg)]">National-Level Rope Skipping Champion and SGFI Gold Medalist</strong>. Captaining national squads instilled in me intense discipline, resilience under pressure, and teamwork.
                                     </p>
                                 </div>
-                            </div>
 
-                            <p className="text-[var(--color-foreground)]/80 leading-relaxed">
-                                I am an Electronics and Communication Engineering undergraduate at{" "}
-                                <span className="text-[var(--color-accent-light)] font-medium">
-                                    Government College of Engineering, Erode
-                                </span>
-                                . I am driven by the ambition to use my calibre to the fullest to contribute
-                                meaningfully to company development and technological innovation.
-                            </p>
-
-                            <p className="text-[var(--color-foreground)]/80 leading-relaxed">
-                                Beyond academics, I bring a unique blend of technical aptitude and
-                                athletic discipline. As a national-level athlete, I&apos;ve learned that
-                                excellence requires both precision and perseverance — values I carry
-                                into every project and endeavor.
-                            </p>
-
-                            {/* Quick stats */}
-                            <div className="grid grid-cols-2 gap-4 pt-4">
-                                <div className="text-center p-4 rounded-xl bg-[var(--color-surface-light)]">
-                                    <p className="text-2xl font-bold gradient-text">GCE</p>
-                                    <p className="text-xs text-[var(--color-muted)] mt-1">Erode</p>
-                                </div>
-                                <div className="text-center p-4 rounded-xl bg-[var(--color-surface-light)]">
-                                    <p className="text-2xl font-bold gradient-text">ECE</p>
-                                    <p className="text-xs text-[var(--color-muted)] mt-1">Branch</p>
-                                </div>
-                            </div>
-                        </div>
-                    </ScrollReveal>
-
-                    {/* Soft skills */}
-                    <ScrollReveal direction="right">
-                        <div className="space-y-4">
-                            <h3 className="text-xl font-semibold text-[var(--color-foreground)] mb-6">
-                                Interpersonal Skills
-                            </h3>
-                            {softSkills.map((skill, i) => (
-                                <motion.div
-                                    key={skill.name}
-                                    initial={{ opacity: 0, x: 30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.1, duration: 0.4 }}
-                                    viewport={{ once: true }}
-                                    whileHover={{ x: 6 }}
-                                    className="glass-card p-5 flex items-center gap-4 cursor-default group"
-                                >
-                                    <div
-                                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${skill.color} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform`}
-                                    >
-                                        {skill.icon}
-                                    </div>
-                                    <div className="flex-1 min-w-0">
-                                        <h4 className="font-semibold text-[var(--color-foreground)]">{skill.name}</h4>
-                                        <div className="mt-2 h-1.5 w-full bg-[var(--color-surface-light)] rounded-full overflow-hidden">
-                                            <motion.div
-                                                initial={{ width: 0 }}
-                                                whileInView={{ width: "100%" }}
-                                                transition={{ delay: 0.2 + i * 0.1, duration: 0.8 }}
-                                                viewport={{ once: true }}
-                                                className={`h-full rounded-full bg-gradient-to-r ${skill.color}`}
-                                            />
+                                {/* Personal Information Grid */}
+                                <div className="pt-4 border-t border-[var(--border-color)] grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {personalInfo.map((info, idx) => (
+                                        <div key={idx} className="flex flex-col">
+                                            <span className="text-xs uppercase tracking-wider text-[var(--text-color)] font-semibold">
+                                                {info.label}:
+                                            </span>
+                                            <span className="text-sm font-medium text-[var(--fg)] mt-0.5">
+                                                {info.value}
+                                            </span>
                                         </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </ScrollReveal>
+                                    ))}
+                                </div>
+                            </div>
+                        </ScrollReveal>
+                    </div>
+
+                    {/* Right Column: Key Strengths & Traits (6 cols) */}
+                    <div className="lg:col-span-6 space-y-6">
+                        <ScrollReveal direction="right">
+                            <div className="bedim-card p-8 sm:p-10 space-y-6">
+                                <div>
+                                    <span className="section-subtitle">WORK ETHIC &amp; TRAITS</span>
+                                    <h3 className="font-syne text-xl sm:text-2xl font-bold text-[var(--fg)]">
+                                        Core Strengths
+                                    </h3>
+                                </div>
+
+                                <div className="space-y-4">
+                                    {softSkills.map((skill, index) => (
+                                        <div
+                                            key={index}
+                                            className="p-4 rounded-xl bg-[var(--container-color-light)] border border-[var(--border-color)] flex items-start gap-4 hover:border-[var(--first-color)]/40 transition-colors"
+                                        >
+                                            <div className="w-10 h-10 rounded-lg bg-[var(--first-color)]/10 text-[var(--first-color)] flex items-center justify-center text-xl shrink-0 mt-0.5">
+                                                <i className={skill.icon} />
+                                            </div>
+                                            <div className="min-w-0">
+                                                <h4 className="font-syne text-sm font-bold text-[var(--fg)]">
+                                                    {skill.name}
+                                                </h4>
+                                                <p className="text-xs text-[var(--text-color)] mt-1 leading-relaxed">
+                                                    {skill.desc}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Call to action within card */}
+                                <div className="pt-4 border-t border-[var(--border-color)] flex items-center justify-between">
+                                    <span className="text-xs text-[var(--text-color)] font-medium">
+                                        Open for full-time developer roles
+                                    </span>
+                                    <a
+                                        href="#contact"
+                                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--first-color)] hover:underline uppercase tracking-wider"
+                                    >
+                                        <span>Get in touch</span>
+                                        <i className="ri-arrow-right-line" />
+                                    </a>
+                                </div>
+                            </div>
+                        </ScrollReveal>
+                    </div>
+
                 </div>
             </div>
         </section>

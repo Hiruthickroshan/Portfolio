@@ -4,27 +4,24 @@ import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import { motion } from "framer-motion";
 
-interface Skill {
+interface SkillItem {
     name: string;
-    icon: string; // DevIcons class name
+    icon: string;
 }
 
 interface SkillCategory {
     title: string;
-    subtitle: string;
-    icon: string;
-    gradientFrom: string;
-    gradientTo: string;
-    skills: Skill[];
+    description: string;
+    iconClass: string;
+    skills: SkillItem[];
 }
 
-const categories: SkillCategory[] = [
+const skillCategories: SkillCategory[] = [
     {
-        title: "Core Programming",
-        subtitle: "Languages I build with",
-        icon: "devicon-code-plain",
-        gradientFrom: "#0ea5e9",
-        gradientTo: "#06b6d4",
+        title: "Programming Languages",
+        description:
+            "Core languages for software logic, algorithm formulation, and object-oriented development.",
+        iconClass: "ri-code-box-line",
         skills: [
             { name: "Python", icon: "devicon-python-plain colored" },
             { name: "C++", icon: "devicon-cplusplus-plain colored" },
@@ -32,145 +29,97 @@ const categories: SkillCategory[] = [
         ],
     },
     {
-        title: "Professional Tools",
-        subtitle: "Workflow & environment",
-        icon: "devicon-git-plain",
-        gradientFrom: "#8b5cf6",
-        gradientTo: "#a78bfa",
+        title: "Engineering & Web",
+        description:
+            "Embedded micro-controllers, relational database architectures, and web technologies.",
+        iconClass: "ri-cpu-line",
         skills: [
-            { name: "Git / GitHub", icon: "devicon-github-original" },
-            { name: "Linux (Shell)", icon: "devicon-linux-plain" },
-            { name: "VS Code", icon: "devicon-vscode-plain colored" },
+            { name: "Embedded C", icon: "devicon-embeddedc-plain colored" },
+            { name: "SQL / DBMS", icon: "devicon-mysql-plain colored" },
+            { name: "HTML5 & CSS3", icon: "devicon-html5-plain colored" },
+            { name: "JavaScript", icon: "devicon-javascript-plain colored" },
         ],
     },
     {
-        title: "Engineering & Web",
-        subtitle: "Hardware to full-stack",
-        icon: "devicon-embeddedc-plain",
-        gradientFrom: "#f59e0b",
-        gradientTo: "#f97316",
+        title: "Tools & Environment",
+        description:
+            "Version control workflows, UNIX shell environments, and development ecosystems.",
+        iconClass: "ri-terminal-box-line",
         skills: [
-            { name: "Embedded C", icon: "devicon-embeddedc-plain colored" },
-            { name: "HTML5 / CSS3", icon: "devicon-html5-plain colored" },
-            { name: "SQL", icon: "devicon-mysql-plain colored" },
+            { name: "Git & GitHub", icon: "devicon-github-original" },
+            { name: "Linux / Bash", icon: "devicon-linux-plain" },
+            { name: "VS Code", icon: "devicon-vscode-plain colored" },
+            { name: "Wireshark", icon: "ri-radar-line" },
         ],
     },
-];
-
-const additionalSkills: Skill[] = [
-    { name: "Technical Documentation", icon: "devicon-readthedocs-original" },
-    { name: "Data Analysis (Pandas)", icon: "devicon-pandas-plain colored" },
-    { name: "MATLAB", icon: "devicon-matlab-plain colored" },
+    {
+        title: "Data & Analysis",
+        description:
+            "Technical computing, dataset transformation, and comprehensive engineering documentation.",
+        iconClass: "ri-bar-chart-2-line",
+        skills: [
+            { name: "Pandas", icon: "devicon-pandas-plain colored" },
+            { name: "MATLAB", icon: "devicon-matlab-plain colored" },
+            { name: "Tech Writing", icon: "ri-file-text-line" },
+            { name: "Scapy", icon: "ri-shield-keyhole-line" },
+        ],
+    },
 ];
 
 export default function Skills() {
     return (
         <section id="skills" className="py-24 relative">
-            <div
-                className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none"
-                style={{ background: "radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%)" }}
-            />
-
             <div className="max-w-6xl mx-auto px-6 relative z-10">
                 <SectionHeading
-                    title="Technical Skills"
-                    subtitle="Building a strong foundation in programming, tools, and engineering"
+                    subtitle="MY ABILITIES"
+                    title="Skills & Expertise"
                 />
 
-                {/* Three Category Cards */}
-                <div className="grid md:grid-cols-3 gap-6 mb-10">
-                    {categories.map((cat, catIdx) => (
-                        <ScrollReveal key={cat.title} delay={catIdx * 0.15}>
+                <div className="grid md:grid-cols-2 gap-8">
+                    {skillCategories.map((cat, idx) => (
+                        <ScrollReveal key={cat.title} delay={idx * 0.1}>
                             <motion.div
                                 whileHover={{ y: -6 }}
-                                className="glass-card overflow-hidden h-full flex flex-col"
+                                className="bedim-card p-8 h-full flex flex-col justify-between group"
                             >
-                                {/* Card header gradient bar */}
-                                <div
-                                    className="h-1"
-                                    style={{
-                                        background: `linear-gradient(90deg, ${cat.gradientFrom}, ${cat.gradientTo})`,
-                                    }}
-                                />
-
-                                <div className="p-7 flex flex-col flex-1">
-                                    {/* Header */}
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div
-                                            className="w-10 h-10 rounded-lg flex items-center justify-center text-[var(--color-foreground)] text-lg"
-                                            style={{
-                                                background: `linear-gradient(135deg, ${cat.gradientFrom}, ${cat.gradientTo})`,
-                                            }}
-                                        >
-                                            <i className={cat.icon} />
+                                <div>
+                                    {/* Card Header with Icon */}
+                                    <div className="flex items-center gap-4 mb-5">
+                                        <div className="w-14 h-14 rounded-2xl bg-[var(--container-color-light)] border border-[var(--border-color)] group-hover:border-[var(--first-color)] text-[var(--first-color)] flex items-center justify-center text-2xl transition-all group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[var(--first-color-glow)]">
+                                            <i className={cat.iconClass} />
                                         </div>
                                         <div>
-                                            <h3 className="text-lg font-semibold text-[var(--color-foreground)] leading-tight">
+                                            <h3 className="font-syne text-xl font-bold text-[var(--fg)]">
                                                 {cat.title}
                                             </h3>
-                                            <p className="text-xs text-[var(--color-muted)]">
-                                                {cat.subtitle}
-                                            </p>
+                                            <span className="text-xs text-[var(--first-color)] font-semibold uppercase tracking-wider">
+                                                Domain #{idx + 1}
+                                            </span>
                                         </div>
                                     </div>
 
-                                    {/* Skills list */}
-                                    <div className="mt-5 space-y-3 flex-1">
-                                        {cat.skills.map((skill, i) => (
-                                            <motion.div
-                                                key={skill.name}
-                                                initial={{ opacity: 0, x: -12 }}
-                                                whileInView={{ opacity: 1, x: 0 }}
-                                                transition={{
-                                                    delay: 0.1 + i * 0.08,
-                                                    duration: 0.35,
-                                                }}
-                                                viewport={{ once: true }}
-                                                className="skill-badge"
-                                            >
-                                                <i
-                                                    className={skill.icon}
-                                                    style={{ fontSize: "1.5rem" }}
-                                                />
-                                                <span>{skill.name}</span>
-                                            </motion.div>
-                                        ))}
-                                    </div>
+                                    {/* Description */}
+                                    <p className="text-[var(--text-color)] text-sm leading-relaxed mb-6">
+                                        {cat.description}
+                                    </p>
+                                </div>
+
+                                {/* Skills Chips */}
+                                <div className="flex flex-wrap gap-2.5 pt-4 border-t border-[var(--border-color)]">
+                                    {cat.skills.map((skill, sIdx) => (
+                                        <div
+                                            key={sIdx}
+                                            className="skill-chip"
+                                        >
+                                            <i className={`${skill.icon} text-base`} />
+                                            <span>{skill.name}</span>
+                                        </div>
+                                    ))}
                                 </div>
                             </motion.div>
                         </ScrollReveal>
                     ))}
                 </div>
-
-                {/* Additional Skills Row */}
-                <ScrollReveal delay={0.2}>
-                    <div className="glass-card p-7">
-                        <h3 className="text-sm font-semibold text-[var(--color-muted)] uppercase tracking-wider mb-5">
-                            Also proficient in
-                        </h3>
-                        <div className="flex flex-wrap gap-3">
-                            {additionalSkills.map((skill, i) => (
-                                <motion.div
-                                    key={skill.name}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{
-                                        delay: 0.05 + i * 0.06,
-                                        duration: 0.3,
-                                    }}
-                                    viewport={{ once: true }}
-                                    className="skill-badge"
-                                >
-                                    <i
-                                        className={skill.icon}
-                                        style={{ fontSize: "1.5rem" }}
-                                    />
-                                    <span>{skill.name}</span>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </ScrollReveal>
             </div>
         </section>
     );
