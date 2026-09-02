@@ -8,7 +8,10 @@ import { PawPrint, Github } from "lucide-react";
 export default function Projects() {
     return (
         <section id="projects" className="py-24 relative">
-            <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[var(--color-accent)]/5 rounded-full blur-3xl pointer-events-none" />
+            <div
+                className="absolute top-1/2 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
+                style={{ background: "radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%)" }}
+            />
 
             <div className="max-w-6xl mx-auto px-6 relative z-10">
                 <SectionHeading

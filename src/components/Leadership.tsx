@@ -47,8 +47,14 @@ export default function Leadership() {
     return (
         <section id="experience" className="py-24 relative">
             {/* Background accents */}
-            <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-1/3 left-0 w-[400px] h-[400px] bg-[var(--color-accent)]/5 rounded-full blur-3xl pointer-events-none" />
+            <div
+                className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+                style={{ background: "radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%)" }}
+            />
+            <div
+                className="absolute bottom-1/3 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
+                style={{ background: "radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%)" }}
+            />
 
             <div className="max-w-6xl mx-auto px-6 relative z-10">
                 <SectionHeading

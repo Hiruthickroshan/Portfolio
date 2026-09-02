@@ -13,10 +13,19 @@ export default function Hero() {
         >
             {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {/* Gradient orbs */}
-                <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[var(--color-accent)]/10 rounded-full blur-3xl animate-pulse-glow" />
-                <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-[var(--color-accent-secondary)]/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--color-accent)]/5 rounded-full blur-3xl" />
+                {/* Gradient orbs - lightweight GPU rendering */}
+                <div
+                    className="absolute top-1/4 -left-32 w-96 h-96 rounded-full animate-pulse-glow pointer-events-none"
+                    style={{ background: "radial-gradient(circle, rgba(14, 165, 233, 0.16) 0%, transparent 70%)" }}
+                />
+                <div
+                    className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full animate-pulse-glow pointer-events-none"
+                    style={{ background: "radial-gradient(circle, rgba(6, 182, 212, 0.16) 0%, transparent 70%)", animationDelay: "1.5s" }}
+                />
+                <div
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+                    style={{ background: "radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%)" }}
+                />
 
                 {/* Grid pattern */}
                 <div

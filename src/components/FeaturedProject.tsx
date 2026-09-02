@@ -25,7 +25,10 @@ const keyFeatures = [
 export default function FeaturedProject() {
     return (
         <section id="featured-project" className="py-24 relative">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[var(--color-accent)]/5 rounded-full blur-3xl pointer-events-none" />
+            <div
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+                style={{ background: "radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%)" }}
+            />
 
             <div className="max-w-6xl mx-auto px-6 relative z-10">
                 {/* Section label */}

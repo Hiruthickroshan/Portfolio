@@ -66,7 +66,10 @@ const additionalSkills: Skill[] = [
 export default function Skills() {
     return (
         <section id="skills" className="py-24 relative">
-            <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[var(--color-accent-secondary)]/5 rounded-full blur-3xl pointer-events-none" />
+            <div
+                className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none"
+                style={{ background: "radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%)" }}
+            />
 
             <div className="max-w-6xl mx-auto px-6 relative z-10">
                 <SectionHeading
